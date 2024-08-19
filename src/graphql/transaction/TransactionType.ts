@@ -5,20 +5,24 @@ import { iTransaction } from "../../database/models/TransactionModel";
 const TransactionType = new GraphQLObjectType<iTransaction>({
   name: "Transaction",
   fields: () => ({
-    receiverId: {
-      type: GraphQLString,
-      resolve: (transaction) => transaction.receiverId,
-    },
-    senderId: {
+    receiverAccount: {
       type: GraphQLString,
       require: true,
+      resolve: (transaction) => transaction.receiverAccount,
+    },
+    senderAccount: {
+      type: GraphQLString,
+      require: true,
+      resolve: (transaction) => transaction.senderAccount,
     },
     ammount: {
       type: GraphQLInt,
       required: true,
+      resolve: (transaction) => transaction.ammount,
     },
     created_at: {
       type: GraphQLString,
+      resolve: (transaction) => transaction.created_at,
     },
   }),
 });

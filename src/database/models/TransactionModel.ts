@@ -2,18 +2,18 @@
 
 export interface iTransaction {
   _id: string;
-  receiverId: string;
-  senderId: string;
+  receiverAccount: string;
+  senderAccount: string;
   ammount: number;
   created_at: Date;
 }
 
 const transactionSchema = new Schema<iTransaction>({
-  receiverId: {
+  receiverAccount: {
     type: String,
     require: true,
   },
-  senderId: {
+  senderAccount: {
     type: String,
     require: true,
   },

@@ -1,19 +1,18 @@
 ﻿import TransactionModel from "../database/models/TransactionModel";
 import AccountModel from "../database/models/AccountModel";
-
-interface iCreateTransaction {
-  receiver: string;
-  sender: string;
-  ammount: number;
-}
+import { iCreateTransaction } from "../graphql/transaction/mutations/CreateTransaction";
 
 export default class TransactionResolver {
   constructor() {}
 
   static async DoTransaction(data: iCreateTransaction) {
     // CHECK IF ACCOUNTS EXISTS
-    const sender = await AccountModel.findOne({ accNumber: data.sender });
-    const receiver = await AccountModel.findOne({ accNumber: data.receiver });
+    const sender = await AccountModel.findOne({
+      accNumber: data.senderAccount,
+    });
+    const receiver = await AccountModel.findOne({
+      accNumber: data.receiverAccount,
+    });
 
     if (!sender || !receiver) {
       throw new Error("Sender or receiver not found");

@@ -3,29 +3,43 @@ import TransactionResolver from "../../../resolvers/TransactionResolver";
 import { iResponse } from "../../account/mutations/CreateAccount";
 import { iTransaction } from "../../../database/models/TransactionModel";
 import { TransactionEdge } from "../TransactionType";
-import { GraphQLBoolean, GraphQLFloat, GraphQLString } from "graphql";
-import { iAccount } from "../../../database/models/AccountModel";
+import {
+  GraphQLBoolean,
+  GraphQLFloat,
+  GraphQLNonNull,
+  GraphQLString,
+} from "graphql";
+
+export interface iCreateTransaction {
+  receiverAccount: string;
+  senderAccount: string;
+  ammount: number;
+}
 
 export default mutationWithClientMutationId({
   name: "CreateTransaction",
   inputFields: {
-    receiver: {
-      type: GraphQLString,
+    receiverAccount: {
+      type: new GraphQLNonNull(GraphQLString),
       description: "Receiver account number",
     },
-    sender: {
-      type: GraphQLString,
+    senderAccount: {
+      type: new GraphQLNonNull(GraphQLString),
       description: "Sender account number",
     },
     ammount: {
-      type: GraphQLFloat,
+      type: new GraphQLNonNull(GraphQLFloat),
     },
   },
-  mutateAndGetPayload: async ({ receiver, sender, ammount }) => {
+  mutateAndGetPayload: async ({
+    receiverAccount,
+    senderAccount,
+    ammount,
+  }: iCreateTransaction) => {
     try {
       const transaction = await TransactionResolver.DoTransaction({
-        receiver,
-        sender,
+        receiverAccount,
+        senderAccount,
         ammount,
       });
 
