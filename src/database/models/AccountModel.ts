@@ -1,4 +1,5 @@
 ﻿import { Schema, model } from "mongoose";
+import accountSeed from "../seeds/accountSeed";
 
 export interface iAccount {
   _id?: string;
@@ -34,4 +35,5 @@ const accountSchema = new Schema<iAccount>({
 });
 
 const AccountModel = model<iAccount>("Accounts", accountSchema);
+
 export default AccountModel;

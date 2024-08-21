@@ -1,4 +1,5 @@
 ﻿import { connect, connection } from "mongoose";
+import createDefaultAccounts from "./seeds/accountSeed";
 
 async function startDb() {
   // WITHOUT .ENV, FOR NOW...
@@ -12,5 +13,7 @@ async function startDb() {
 
   connection.on("error", (e) => console.error("An error ocurred: \n", e));
 }
+
+createDefaultAccounts();
 
 export default startDb;
