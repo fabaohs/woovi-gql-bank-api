@@ -1,0 +1,16 @@
+﻿version: "3"
+services:
+  bank_api:
+    image: bank_api
+    ports:
+      - "4000:4000"
+  bank_db:
+    image: bank_db
+    ports:
+      - "27017:27017"
+  networks:
+    - bank_network
+
+networks:
+  bank_network:
+    driver: bridge
