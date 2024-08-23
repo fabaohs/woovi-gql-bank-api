@@ -5,12 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "vitest",
+    "build": "tsc --outDir ./dist --project ./tsconfig.json",
     "dev": "tsnd --respawn src/index.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.4.5",
     "graphql-relay": "^0.10.2",
     "koa": "^2.15.3",
     "koa-mount": "^4.0.0",
