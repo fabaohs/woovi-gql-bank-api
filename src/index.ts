@@ -1,10 +1,13 @@
 ﻿import Koa from "koa";
 import mount from "koa-mount";
+import { config } from "dotenv";
 
 import { graphqlHTTP } from "koa-graphql";
 
 import { schema } from "./graphql/";
 import startDb from "./database/db";
+
+config();
 
 startDb();
 
