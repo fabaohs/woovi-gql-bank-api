@@ -3,7 +3,7 @@ import createDefaultAccounts from "./seeds/accountSeed";
 
 async function startDb() {
   // WITHOUT .ENV, FOR NOW...
-  const connectionString = "mongodb://localhost:27017/PixVulture";
+  const connectionString = "mongodb://bank_db:27017/PixVulture"; //String(process.env.DB_URL);
 
   await connect(connectionString);
 
@@ -12,8 +12,7 @@ async function startDb() {
   });
 
   connection.on("error", (e) => console.error("An error ocurred: \n", e));
+  await createDefaultAccounts();
 }
-
-createDefaultAccounts();
 
 export default startDb;

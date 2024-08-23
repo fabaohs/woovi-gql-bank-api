@@ -1,15 +1,17 @@
 ﻿version: "3"
 services:
   bank_api:
-    image: bank_api
+    image: bank_api:latest
     ports:
       - "4000:4000"
+    networks:
+      - bank_network
   bank_db:
-    image: bank_db
+    image: mongo:latest
     ports:
       - "27017:27017"
-  networks:
-    - bank_network
+    networks:
+      - bank_network
 
 networks:
   bank_network:

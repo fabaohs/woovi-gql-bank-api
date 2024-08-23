@@ -1,15 +1,22 @@
-﻿FROM node:lts-alpine
+﻿FROM node:lts-alpine AS base
+
+FROM base AS build
 
 RUN npm install -g pnpm
 
 WORKDIR /app
 
-COPY package.json pnpm-lock.yaml ./
+COPY . .
 
 RUN pnpm install --frozen-lockfile
 
-COPY . .
+RUN pnpm build
+
+FROM base as prod
+
+COPY --from=build /app/node_modules /app/node_modules
+COPY --from=build /app/dist/ /app/dist
 
 EXPOSE 4000
 
-CMD ["pnpm", "dev"]
+CMD ["node", "/app/dist/src/index.js"]
