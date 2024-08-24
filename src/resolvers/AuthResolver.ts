@@ -1,7 +1,6 @@
 ﻿import { iAccount } from "./../database/models/AccountModel";
 import AccountModel from "../database/models/AccountModel";
 import { iAuthenticate } from "../graphql/account/mutations/Authenticate";
-import { iResolverResponse } from "../interfaces/iResolverResponse";
 
 export default class AuthResolver {
   constructor() {}
@@ -15,7 +14,7 @@ export default class AuthResolver {
         throw new Error("Internal server error");
       });
 
-    //?TODO: LOGIC TO GET TOKEN
+    //?TODO: LOGIC TO GET USE SOME TOKEN (jwt or anything else)
     return account;
   }
 }
