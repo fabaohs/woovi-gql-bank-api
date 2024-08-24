@@ -16,4 +16,5 @@ docker build . -t bank_api
 docker compose up
 ```
 
-The api will run in localhost:4000
+The api will run in localhost:4000.
+To access the GraphQL client, just use the /graphql route.
