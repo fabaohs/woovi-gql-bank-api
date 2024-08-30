@@ -1,8 +1,8 @@
 ﻿import { GraphQLBoolean, GraphQLNonNull, GraphQLString } from "graphql";
 import { mutationWithClientMutationId, toGlobalId } from "graphql-relay";
-import AccountModel, { iAccount } from "../../../database/models/AccountModel";
+import AccountModel, { iAccount } from "../../models/AccountModel";
 import { AccountEdge } from "../AccountType";
-import AccountResolver from "../../../resolvers/AccountResolver";
+import AccountResolver from "../../resolvers/AccountResolver";
 
 export interface iResponse<T> {
   data?: T;

@@ -6,7 +6,7 @@
 } from "graphql";
 
 import { globalIdField } from "graphql-relay";
-import { iAccount } from "../../database/models/AccountModel";
+import { iAccount } from "../models/AccountModel";
 import { connectionDefinitions } from "graphql-relay";
 
 const AccountType = new GraphQLObjectType<iAccount>({

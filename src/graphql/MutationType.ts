@@ -1,6 +1,6 @@
 ﻿import { GraphQLObjectType } from "graphql";
-import AccountMutations from "./account/mutations";
-import TransactionMutations from "./transaction/mutations";
+import AccountMutations from "../cases/accounts/graphql/mutations";
+import TransactionMutations from "../cases/transactions/graphql/mutations";
 
 const MutationType = new GraphQLObjectType({
   name: "Mutation",

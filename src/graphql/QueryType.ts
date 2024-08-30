@@ -1,7 +1,7 @@
 ﻿import { GraphQLNonNull, GraphQLObjectType } from "graphql";
 import { connectionArgs, connectionFromArray } from "graphql-relay";
-import { AccountConnection } from "./account/AccountType";
-import AccountService from "../resolvers/AccountResolver";
+import { AccountConnection } from "../cases/accounts/graphql/AccountType";
+import AccountService from "../cases/accounts/resolvers/AccountResolver";
 
 const QueryType = new GraphQLObjectType({
   name: "Query",

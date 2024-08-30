@@ -1,9 +1,9 @@
 ﻿import { mutationWithClientMutationId, toGlobalId } from "graphql-relay";
-import { AccountEdge } from "../AccountType";
+import { AccountEdge } from "../../accounts/graphql/AccountType";
 import { GraphQLBoolean, GraphQLNonNull, GraphQLString } from "graphql";
 import AuthResolver from "../../../resolvers/AuthResolver";
-import { iResponse } from "./CreateAccount";
-import { iAccount } from "../../../database/models/AccountModel";
+import { iResponse } from "../../accounts/graphql/mutations/CreateAccount";
+import { iAccount } from "../../accounts/models/AccountModel";
 
 export interface iAuthenticate {
   cpf: string;

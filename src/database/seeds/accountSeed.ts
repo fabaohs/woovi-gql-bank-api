@@ -1,4 +1,4 @@
-﻿import AccountModel from "../models/AccountModel";
+﻿import AccountModel from "../../cases/accounts/models/AccountModel";
 
 async function createDefaultAccounts() {
   const checkIfAlreadyHasAccounts = await AccountModel.find().catch((err) => {

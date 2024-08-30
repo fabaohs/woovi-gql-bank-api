@@ -1,6 +1,6 @@
-﻿import { iAccount } from "./../database/models/AccountModel";
-import AccountModel from "../database/models/AccountModel";
-import { iAuthenticate } from "../graphql/account/mutations/Authenticate";
+﻿import { iAccount } from "../cases/accounts/models/AccountModel";
+import AccountModel from "../cases/accounts/models/AccountModel";
+import { iAuthenticate } from "../cases/auth/graphql/Authenticate";
 
 export default class AuthResolver {
   constructor() {}

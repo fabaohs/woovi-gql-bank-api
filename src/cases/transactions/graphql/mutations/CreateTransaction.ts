@@ -1,7 +1,7 @@
 ﻿import { mutationWithClientMutationId, toGlobalId } from "graphql-relay";
-import TransactionResolver from "../../../resolvers/TransactionResolver";
-import { iResponse } from "../../account/mutations/CreateAccount";
-import { iTransaction } from "../../../database/models/TransactionModel";
+import TransactionResolver from "../../resolvers/TransactionResolver";
+import { iResponse } from "../../../accounts/graphql/mutations/CreateAccount";
+import { iTransaction } from "../../models/TransactionModel";
 import { TransactionEdge } from "../TransactionType";
 import {
   GraphQLBoolean,

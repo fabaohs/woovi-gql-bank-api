@@ -1,6 +1,6 @@
 ﻿import { GraphQLInt, GraphQLObjectType, GraphQLString } from "graphql";
 import { connectionDefinitions } from "graphql-relay";
-import { iTransaction } from "../../database/models/TransactionModel";
+import { iTransaction } from "../models/TransactionModel";
 
 const TransactionType = new GraphQLObjectType<iTransaction>({
   name: "Transaction",

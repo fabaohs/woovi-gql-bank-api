@@ -1,4 +1,5 @@
-﻿import AccountModel from "../database/models/AccountModel";
+﻿import AccountModel from "../models/AccountModel";
+import { startSession } from "mongoose";
 
 interface iCreateAccount {
   userName: string;
@@ -10,6 +11,9 @@ export default class AccountResolver {
   constructor() {}
 
   static async CreateAccount(data: iCreateAccount) {
+    const session = await startSession();
+    session.startTransaction();
+
     let randomAccNumber = Math.floor(Math.random() * 1000);
 
     // CHECK IF ACC NUMBER EXISTS
@@ -28,8 +32,10 @@ export default class AccountResolver {
       .then((res) => res)
       .catch((err) => {
         console.log("An error ocurred: \n", err);
+        session.abortTransaction();
         throw new Error("Internal server error");
-      });
+      })
+      .finally(() => session.endSession());
 
     return created;
   }
